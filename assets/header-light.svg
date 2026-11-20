@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="Hồ Hiệp · LacDev">
+  <style>
+    .name { font: 800 76px -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #171613; letter-spacing: -2px; animation: up .9s cubic-bezier(.2,.8,.2,1) both; }
+    .tag { font: 700 15px ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; fill: #1f5a47; letter-spacing: 3px; animation: up .9s .15s cubic-bezier(.2,.8,.2,1) both; }
+    .type { font: 500 22px ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; fill: #5f6560; }
+    .prompt { font: 700 22px ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; fill: #1f5a47; }
+    .caret { fill: #1f5a47; animation: blink 1s steps(1) infinite; }
+    .grid { stroke: #ddd8cf; stroke-width: 1; }
+    .orbit { fill: none; stroke: #1f5a47; stroke-opacity: .35; stroke-width: 1.5; stroke-dasharray: 4 10; }
+    .spin { transform-origin: 1000px 160px; animation: spin 40s linear infinite; }
+    .spin2 { transform-origin: 1000px 160px; animation: spin 26s linear infinite reverse; }
+    .dot { fill: #2c7a60; }
+    .pulse { transform-origin: 1000px 160px; animation: pulse 3.2s ease-in-out infinite; }
+    .scan { animation: scan 6s ease-in-out infinite; }
+    @keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%,100% { transform: scale(1); opacity: .9; } 50% { transform: scale(1.08); opacity: 1; } }
+    @keyframes scan { 0% { transform: translateX(-300px); opacity: 0; } 20% { opacity: .5; } 80% { opacity: .5; } 100% { transform: translateX(1300px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#e8f1ec"/>
+    </linearGradient>
+    <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" class="grid" fill="none"/>
+    </pattern>
+    <linearGradient id="beam" x1="0" x2="1">
+      <stop offset="0" stop-color="#1f5a47" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#1f5a47" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#1f5a47" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="fade" cx=".3" cy=".5" r=".8">
+      <stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="m"><rect width="1200" height="320" fill="url(#fade)"/></mask>
+  </defs>
+  <rect width="1200" height="320" rx="18" fill="url(#bg)"/>
+  <rect width="1200" height="320" rx="18" fill="url(#g)" mask="url(#m)" opacity=".7"/>
+  <rect class="scan" x="0" y="0" width="260" height="320" fill="url(#beam)"/>
+
+  <text x="96" y="92" class="tag">DEVELOPER · AI INTEGRATION · AUTOMATION</text>
+  <text x="92" y="166" class="name">Hồ Hiệp</text>
+  <text x="70" y="224" class="prompt">›</text>
+  
+    <clipPath id="c0"><rect x="96" y="196" height="40" width="0">
+      <animate attributeName="width" dur="16s" repeatCount="indefinite" calcMode="linear"
+        keyTimes="0;0.0;0.0875;0.2125;0.25;1" values="0;0;360;360;0;0"/>
+    </rect></clipPath>
+    <text x="96" y="224" class="type" clip-path="url(#c0)">AI integration &amp; automation</text>
+    <clipPath id="c1"><rect x="96" y="196" height="40" width="0">
+      <animate attributeName="width" dur="16s" repeatCount="indefinite" calcMode="linear"
+        keyTimes="0;0.25;0.3375;0.4625;0.5;1" values="0;0;519;519;0;0"/>
+    </rect></clipPath>
+    <text x="96" y="224" class="type" clip-path="url(#c1)">building ASC - scam checker for Vietnam</text>
+    <clipPath id="c2"><rect x="96" y="196" height="40" width="0">
+      <animate attributeName="width" dur="16s" repeatCount="indefinite" calcMode="linear"
+        keyTimes="0;0.5;0.5875;0.7125;0.75;1" values="0;0;466;466;0;0"/>
+    </rect></clipPath>
+    <text x="96" y="224" class="type" clip-path="url(#c2)">building TRAM - offline book reader</text>
+    <clipPath id="c3"><rect x="96" y="196" height="40" width="0">
+      <animate attributeName="width" dur="16s" repeatCount="indefinite" calcMode="linear"
+        keyTimes="0;0.75;0.8375;0.9625;1.0;1" values="0;0;400;400;0;0"/>
+    </rect></clipPath>
+    <text x="96" y="224" class="type" clip-path="url(#c3)">clean systems, fast and stable</text>
+  <rect class="caret" y="203" width="12" height="26" x="96"><animate attributeName="x" dur="16s" repeatCount="indefinite" keyTimes="0;0.0875;0.2125;0.2499;0.25;0.3375;0.4625;0.4999;0.5;0.5875;0.7125;0.7499;0.75;0.8375;0.9625;1" values="96;456;456;96;96;615;615;96;96;562;562;96;96;496;496;96"/></rect>
+
+  <g>
+    <circle cx="1000" cy="160" r="104" class="orbit spin"/>
+    <circle cx="1000" cy="160" r="72" class="orbit spin2"/>
+    <g class="spin"><circle cx="1104" cy="160" r="5" class="dot"/></g>
+    <g class="spin2"><circle cx="1000" cy="88" r="4" class="dot" opacity=".7"/></g>
+    <g class="pulse">
+      <rect x="966" y="126" width="68" height="68" rx="16" fill="#1f5a47"/>
+      <path d="M986 172 L1000 140 L1014 172 M991 162 h18" fill="none" stroke="#fffdf8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>
