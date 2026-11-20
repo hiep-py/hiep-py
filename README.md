@@ -24,10 +24,4 @@ Xin chào, tôi là **Hiệp** (LacDev). Tôi xây những hệ thống rõ ràn
   <img src="assets/stack-light.svg" width="100%" alt="Python, TypeScript, JavaScript, Kotlin, C#/C++, Rust, React, Node.js, Bun, Jetpack Compose, Tailwind, Linux, Docker, MongoDB, Cloudflare, CI/CD, Git, LLM integration, On-device ML, ONNX Runtime, OCR, Automation bots">
 </picture>
 
-## Chứng chỉ
-
-**AWS** · Fundamentals of ML & AI · Developing ML Solutions · Cybersecurity for Small Business Owners  
-**IBM** · [Artificial Intelligence Fundamentals](https://www.credly.com/badges/dcb9d108-4533-4e5a-b945-d7c09497fe73)  
-**The Open University** · Network Security · Information Security · Introduction to Quantum Computing
-
 <p align="center"><sub>🇻🇳 Made in Vietnam · <a href="https://lacdev.xyz/">lacdev.xyz</a></sub></p>
