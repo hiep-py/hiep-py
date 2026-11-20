@@ -33,97 +33,40 @@ LINES = [
 
 
 def header(t: dict) -> str:
-    w, h = 1200, 320
-    cycle = 16  # seconds for all lines
-    slot = cycle / len(LINES)
-    char_w = 13.2  # monospace 22px
-    typed = []
-    for i, line in enumerate(LINES):
-        width = len(line) * char_w + 4
-        a = i / len(LINES)
-        b = (i + 1) / len(LINES)
-        # Hidden, type in (35% of the slot), hold, erase (15%), hidden.
-        k = [0, a, a + 0.35 * (b - a), b - 0.15 * (b - a), b, 1]
-        k = [round(x, 4) for x in k]
-        typed.append(f"""
-    <clipPath id="c{i}"><rect x="96" y="196" height="40" width="0">
-      <animate attributeName="width" dur="{cycle}s" repeatCount="indefinite" calcMode="linear"
-        keyTimes="{';'.join(map(str, k))}" values="0;0;{width:.0f};{width:.0f};0;0"/>
-    </rect></clipPath>
-    <text x="96" y="224" class="type" clip-path="url(#c{i})">{escape(line)}</text>""")
-    # The caret follows the typed text of each slot.
-    caret_values = []
-    caret_times = []
-    for i, line in enumerate(LINES):
-        width = len(line) * char_w + 4
-        a = i / len(LINES)
-        b = (i + 1) / len(LINES)
-        caret_times += [a, a + 0.35 * (b - a), b - 0.15 * (b - a), b - 0.0001 if i < len(LINES) - 1 else 1]
-        caret_values += [96, 96 + width, 96 + width, 96]
-    caret_times[0] = 0
-    caret = (
-        f'<rect class="caret" y="203" width="12" height="26" x="96">'
-        f'<animate attributeName="x" dur="{cycle}s" repeatCount="indefinite" '
-        f'keyTimes="{";".join(str(round(x, 4)) for x in caret_times)}" '
-        f'values="{";".join(f"{v:.0f}" for v in caret_values)}"/></rect>'
-    )
+    """A black-and-white poster: giant LACDEV drawn as an outline then filled, a ticker running along the bottom."""
+    w, h = 1200, 380
+    ink, paper = t["ink"], t["bg1"]
+    ticker = "AI INTEGRATION  /  AUTOMATION  /  SYSTEM DESIGN  /  PERFORMANCE  /  ANDROID  /  WEB  /  LINUX  /  "
+    tw = 1500  # forced width of one ticker copy (textLength), so the loop is seamless with any font
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="Hồ Hiệp · LacDev">
   <style>
-    .name {{ font: 800 76px {SANS}; fill: {t['ink']}; letter-spacing: -2px; animation: up .9s cubic-bezier(.2,.8,.2,1) both; }}
-    .tag {{ font: 700 15px {MONO}; fill: {t['accent']}; letter-spacing: 3px; animation: up .9s .15s cubic-bezier(.2,.8,.2,1) both; }}
-    .type {{ font: 500 22px {MONO}; fill: {t['muted']}; }}
-    .prompt {{ font: 700 22px {MONO}; fill: {t['accent']}; }}
-    .caret {{ fill: {t['accent']}; animation: blink 1s steps(1) infinite; }}
-    .grid {{ stroke: {t['line']}; stroke-width: 1; }}
-    .orbit {{ fill: none; stroke: {t['accent']}; stroke-opacity: .35; stroke-width: 1.5; stroke-dasharray: 4 10; }}
-    .spin {{ transform-origin: 1000px 160px; animation: spin 40s linear infinite; }}
-    .spin2 {{ transform-origin: 1000px 160px; animation: spin 26s linear infinite reverse; }}
-    .dot {{ fill: {t['accent2']}; }}
-    .pulse {{ transform-origin: 1000px 160px; animation: pulse 3.2s ease-in-out infinite; }}
-    .scan {{ animation: scan 6s ease-in-out infinite; }}
-    @keyframes up {{ from {{ opacity: 0; transform: translateY(14px); }} to {{ opacity: 1; transform: none; }} }}
+    .meta {{ font: 700 14px {MONO}; fill: {ink}; letter-spacing: 2px; }}
+    .dim {{ fill-opacity: .55; }}
+    .big {{ font: 900 220px 'Arial Black', 'Helvetica Neue', Arial, sans-serif; fill: {ink}; fill-opacity: 0; stroke: {ink}; stroke-width: 2;
+            stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: draw 2.4s .2s cubic-bezier(.6,0,.2,1) forwards, fill .8s 2.3s ease forwards; }}
+    .rule {{ stroke: {ink}; stroke-width: 1; }}
+    .band {{ fill: {ink}; }}
+    .tick {{ font: 700 15px {MONO}; fill: {paper}; letter-spacing: 3px; }}
+    .run {{ animation: run 28s linear infinite; }}
+    .blink {{ animation: blink 1.1s steps(1) infinite; }}
+    @keyframes draw {{ to {{ stroke-dashoffset: 0; }} }}
+    @keyframes fill {{ to {{ fill-opacity: 1; stroke-width: 0; }} }}
+    @keyframes run {{ to {{ transform: translateX(-{tw}px); }} }}
     @keyframes blink {{ 50% {{ opacity: 0; }} }}
-    @keyframes spin {{ to {{ transform: rotate(360deg); }} }}
-    @keyframes pulse {{ 0%,100% {{ transform: scale(1); opacity: .9; }} 50% {{ transform: scale(1.08); opacity: 1; }} }}
-    @keyframes scan {{ 0% {{ transform: translateX(-300px); opacity: 0; }} 20% {{ opacity: .5; }} 80% {{ opacity: .5; }} 100% {{ transform: translateX(1300px); opacity: 0; }} }}
-    @media (prefers-reduced-motion: reduce) {{ * {{ animation: none !important; }} }}
+    @media (prefers-reduced-motion: reduce) {{ .big {{ animation: none; fill-opacity: 1; stroke-width: 0; }} .run, .blink {{ animation: none; }} }}
   </style>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="{t['bg1']}"/><stop offset="1" stop-color="{t['bg2']}"/>
-    </linearGradient>
-    <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M40 0H0V40" class="grid" fill="none"/>
-    </pattern>
-    <linearGradient id="beam" x1="0" x2="1">
-      <stop offset="0" stop-color="{t['accent']}" stop-opacity="0"/>
-      <stop offset=".5" stop-color="{t['accent']}" stop-opacity=".18"/>
-      <stop offset="1" stop-color="{t['accent']}" stop-opacity="0"/>
-    </linearGradient>
-    <radialGradient id="fade" cx=".3" cy=".5" r=".8">
-      <stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
-    </radialGradient>
-    <mask id="m"><rect width="{w}" height="{h}" fill="url(#fade)"/></mask>
-  </defs>
-  <rect width="{w}" height="{h}" rx="18" fill="url(#bg)"/>
-  <rect width="{w}" height="{h}" rx="18" fill="url(#g)" mask="url(#m)" opacity=".7"/>
-  <rect class="scan" x="0" y="0" width="260" height="{h}" fill="url(#beam)"/>
-
-  <text x="96" y="92" class="tag">DEVELOPER · AI INTEGRATION · AUTOMATION</text>
-  <text x="92" y="166" class="name">Hồ Hiệp</text>
-  <text x="70" y="224" class="prompt">›</text>
-  {''.join(typed)}
-  {caret}
-
-  <g>
-    <circle cx="1000" cy="160" r="104" class="orbit spin"/>
-    <circle cx="1000" cy="160" r="72" class="orbit spin2"/>
-    <g class="spin"><circle cx="1104" cy="160" r="5" class="dot"/></g>
-    <g class="spin2"><circle cx="1000" cy="88" r="4" class="dot" opacity=".7"/></g>
-    <g class="pulse">
-      <rect x="966" y="126" width="68" height="68" rx="16" fill="{t['accent']}"/>
-      <path d="M986 172 L1000 140 L1014 172 M991 162 h18" fill="none" stroke="{t['bg1']}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
+  <rect width="{w}" height="{h}" fill="{paper}"/>
+  <text x="40" y="52" class="meta">HỒ HIỆP</text>
+  <text x="600" y="52" class="meta dim" text-anchor="middle">DEVELOPER — VIETNAM</text>
+  <text x="1160" y="52" class="meta" text-anchor="end">LACDEV.XYZ</text>
+  <line x1="40" y1="72" x2="1160" y2="72" class="rule"/>
+  <text x="34" y="272" class="big" textLength="1132" lengthAdjust="spacingAndGlyphs">LACDEV</text>
+  <text x="40" y="306" class="meta dim" textLength="330" lengthAdjust="spacing">~/hiep $ build --clean --fast --stable</text>
+  <rect x="378" y="294" width="10" height="16" class="band blink"/>
+  <rect x="0" y="{h - 46}" width="{w}" height="46" class="band"/>
+  <g class="run">
+    <text x="0" y="{h - 18}" class="tick" textLength="{tw}" lengthAdjust="spacing">{ticker}</text>
+    <text x="{tw}" y="{h - 18}" class="tick" textLength="{tw}" lengthAdjust="spacing">{ticker}</text>
   </g>
 </svg>
 """

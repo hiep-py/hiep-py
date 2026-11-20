@@ -17,39 +17,6 @@ Xin chào, tôi là **Hiệp** (LacDev). Tôi xây những hệ thống rõ ràn
 
 > *I build clear, reliable systems: AI integration, automation and performance, from Android apps to servers.*
 
-## Ứng dụng đang phát triển
-
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <img src="assets/asc.png" width="64" align="left" alt="ASC">
-      <b>ASC</b> · An toàn, Sáng suốt, Cảnh giác<br>
-      <sub>Android · Web · AI</sub>
-      <br clear="left"><br>
-      Kiểm tra tin nhắn, đường link, ảnh chụp màn hình và số điện thoại lạ có phải lừa đảo không, rồi nói rõ nên làm gì tiếp.
-      <br><br>
-      🔔 Cảnh báo ngay khi tin nhắn đáng ngờ đến<br>
-      🧪 Mở thử link lạ trong môi trường cách ly<br>
-      🔒 Che OTP, số thẻ ngay trên máy trước khi gửi
-      <br><br>
-      <a href="https://play.google.com/store/apps/details?id=com.lacdev.asc"><b>Google Play</b></a> · <a href="https://asc.lacdev.xyz/"><b>asc.lacdev.xyz</b></a>
-    </td>
-    <td width="50%" valign="top">
-      <img src="assets/tram.png" width="64" align="left" alt="TRAM">
-      <b>TRAM</b> · Đọc &amp; Nghe Sách<br>
-      <sub>Android · Offline · AI trên máy</sub>
-      <br clear="left"><br>
-      Không gian đọc và nghe sách tiếng Việt tĩnh lặng, chạy hoàn toàn ngoại tuyến ngay trên thiết bị.
-      <br><br>
-      📚 EPUB, PDF, TXT và cả sách PDF bản chụp<br>
-      🔍 Nhận diện chữ trên máy, giữ hình và công thức<br>
-      🎧 Giọng đọc tự nhiên, nghe cả khi tắt màn hình
-      <br><br>
-      <a href="https://play.google.com/store/apps/details?id=com.lacdev.sach"><b>Google Play</b></a>
-    </td>
-  </tr>
-</table>
-
 ## Công nghệ
 
 <picture>
