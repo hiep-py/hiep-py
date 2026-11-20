@@ -1,7 +1,7 @@
 <a href="https://lacdev.xyz/">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg">
-    <img src="assets/header-light.svg" width="100%" alt="Hồ Hiệp · Developer · AI Integration · Automation">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+    <img src="assets/banner-light.svg" width="100%" alt="Hồ Hiệp · Developer · AI Integration · Automation">
   </picture>
 </a>
 

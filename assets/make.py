@@ -117,6 +117,6 @@ def stack(t: dict) -> str:
 
 
 for name, theme in THEMES.items():
-    (OUT / f"header-{name}.svg").write_text(header(theme), encoding="utf-8")
+    (OUT / f"banner-{name}.svg").write_text(header(theme), encoding="utf-8")
     (OUT / f"stack-{name}.svg").write_text(stack(theme), encoding="utf-8")
 print("ok")
