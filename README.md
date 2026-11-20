@@ -63,11 +63,4 @@ Xin chào, tôi là **Hiệp** (LacDev). Tôi xây những hệ thống rõ ràn
 **IBM** · [Artificial Intelligence Fundamentals](https://www.credly.com/badges/dcb9d108-4533-4e5a-b945-d7c09497fe73)  
 **The Open University** · Network Security · Information Security · Introduction to Quantum Computing
 
-## Hoạt động
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/hiep-py/hiep-py/output/snake-dark.svg">
-  <img src="https://raw.githubusercontent.com/hiep-py/hiep-py/output/snake.svg" width="100%" alt="Rắn ăn ô đóng góp trên GitHub">
-</picture>
-
 <p align="center"><sub>🇻🇳 Made in Vietnam · <a href="https://lacdev.xyz/">lacdev.xyz</a></sub></p>
